@@ -28,7 +28,7 @@
     "sass-loader": "^6.0.7",
     "vue-template-compiler": "^2.6.10"
   },
-  "description": "A sample admin dashboard based on paper dashboard UI template",
+  "description": "A sample admin dashboard based on Placement Cell UI template",
   "author": "cristian.jora <joracristi@gmail.com>",
   "engines": {
     "node": ">= 8.1.4",

@@ -1,7 +1,7 @@
 /*!
 
  =========================================================
- * Vue Paper Dashboard - v2.0.0
+ * Vue Placement Cell - v2.0.0
  =========================================================
 
  * Product Page: http://www.creative-tim.com/product/paper-dashboard
