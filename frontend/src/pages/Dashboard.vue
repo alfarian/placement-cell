@@ -66,8 +66,8 @@
 
       <div class="col-md-6 col-12">
         <chart-card
-          title="2015 Sales"
-          sub-title="All products including Taxes"
+          title="Placement Analysis"
+          sub-title="* stats till 2019"
           :chart-data="activityChart.data"
           :chart-options="activityChart.options"
         >
@@ -75,8 +75,8 @@
             <i class="ti-check"></i> Data information certified
           </span>
           <div slot="legend">
-            <i class="fa fa-circle text-info"></i> Tesla Model S
-            <i class="fa fa-circle text-warning"></i> BMW 5 Series
+            <i class="fa fa-circle text-info"></i> On Campus
+            <i class="fa fa-circle text-warning"></i> Off Campus
           </div>
         </chart-card>
       </div>
@@ -100,16 +100,16 @@ export default {
         {
           type: "warning",
           icon: "ti-server",
-          title: "Capacity",
-          value: "105GB",
+          title: "Companies",
+          value: "72",
           footerText: "Updated now",
           footerIcon: "ti-reload",
         },
         {
           type: "success",
           icon: "ti-wallet",
-          title: "Revenue",
-          value: "$1,345",
+          title: "Placements",
+          value: "1,345",
           footerText: "Last day",
           footerIcon: "ti-calendar",
         },
