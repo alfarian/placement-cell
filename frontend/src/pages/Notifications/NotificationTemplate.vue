@@ -1,5 +1,5 @@
 <template>
-  <span>Welcome to <b>Paper Dashboard</b> - a beautiful freebie for every web developer.</span>
+  <span>Welcome to <b>Placement Cell</b> - a beautiful freebie for every web developer.</span>
 </template>
 
 <script>

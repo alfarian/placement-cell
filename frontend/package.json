@@ -1,5 +1,5 @@
 {
-  "name": "vue-paper-dashboard",
+  "name": "placement-cell",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.0.0",
+    "bootstrap-vue": "^2.18.0",
     "chartist": "^0.11.0",
     "es6-promise": "^4.2.4",
     "vue": "^2.6.10",
@@ -28,7 +29,7 @@
     "sass-loader": "^6.0.7",
     "vue-template-compiler": "^2.6.10"
   },
-  "description": "A sample admin dashboard based on paper dashboard UI template",
+  "description": "A sample admin dashboard based on Placement Cell UI template",
   "author": "cristian.jora <joracristi@gmail.com>",
   "engines": {
     "node": ">= 8.1.4",
