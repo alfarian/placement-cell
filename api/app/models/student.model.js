@@ -93,4 +93,4 @@ Student.remove = (id, result) => {
   });
 };
 
-module.placement = Student;
+module.exports = Student;
