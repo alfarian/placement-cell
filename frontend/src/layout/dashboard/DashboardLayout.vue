@@ -1,11 +1,22 @@
 <template>
   <div class="wrapper">
     <side-bar>
-      <template slot="links">
+      <template slot="links" v-if="this.$store.state.storeUsers.personaType=='admin'">
         <sidebar-link to="/dashboard" name="Dashboard" icon="ti-panel"/>
         <sidebar-link to="/stats" name="Register User" icon="ti-user"/>
         <sidebar-link to="/table-list" name="Table View" icon="ti-view-list-alt"/>
         <sidebar-link to="/notifications" name="Notifications" icon="ti-bell"/>
+      </template>
+       <template slot="links" v-if="this.$store.state.storeUsers.personaType=='student'">
+        <sidebar-link to="/stats" name="Fill Form" icon="ti-notepad"/>
+        <sidebar-link to="/table-list" name="Question Bank" icon="ti-view-list-alt"/>
+        <sidebar-link to="/notifications" name="Another tab" icon="ti-bell"/>
+      </template>
+      <template slot="links" v-if="this.$store.state.storeUsers.personaType=='comp'">
+        <sidebar-link to="/dashboard" name="Overview" icon="ti-panel"/>
+        <sidebar-link to="/stats" name="Post Job" icon="ti-notepad"/>
+        <sidebar-link to="/table-list" name="Student Overview" icon="ti-view-list-alt"/>
+        <sidebar-link to="/notifications" name="Contact Us" icon="ti-bell"/>
       </template>
       <mobile-menu>
         <li class="nav-item">
