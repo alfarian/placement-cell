@@ -109,20 +109,27 @@ export default {
   data() {
     return {
       email: "",
-      password:""
+      password: "",
     };
   },
-  methods:{
-      validateUser(){
-          if (this.email=="admin" && this.password=="admin"){
-              this.$router.push("dashboard")
+  methods: {
+    validateUser() {
+      if (this.email == "admin" && this.password == "admin") {
+        this.$store.state.storeUsers.personaType = "admin";
+        this.$router.push("dashboard");
+      } else {
+        if (this.email == "student" && this.password == "student") {
+          this.$store.state.storeUsers.personaType = "student";
+          this.$router.push("stats");
+        } else if (this.email == "company" && this.password == "company") {
+          this.$store.state.storeUsers.personaType = "comp";
+          this.$router.push("dashboard");
+        }
 
-          }
-          else{
-              alert("Invalid User !!")
-          }
+        // alert("Invalid User !!")
       }
-  }
+    },
+  },
 };
 </script>
 
