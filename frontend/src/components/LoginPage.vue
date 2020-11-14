@@ -59,6 +59,7 @@
                   type="email"
                   v-model="email"
                   class="form-control form-control-lg"
+                  
                 />
               </div>
 
