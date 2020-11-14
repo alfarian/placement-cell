@@ -5,6 +5,7 @@ import NotFound from "@/pages/NotFoundPage.vue";
 // Admin pages
 import Dashboard from "@/pages/Dashboard.vue";
 import UserProfile from "@/pages/UserProfile.vue";
+import PostUpdates from "@/pages/PostUpdates.vue";
 import Notifications from "@/pages/Notifications.vue";
 import TableList from "@/pages/TableList.vue";
 // Login
@@ -32,6 +33,11 @@ const routes = [
         path: "stats",
         name: "Register User",
         component: UserProfile
+      },
+      {
+        path: "postupdates",
+        name: "Updates",
+        component: PostUpdates
       },
       {
         path: "notifications",
