@@ -107,7 +107,7 @@ export default {
         content: this.user.content,
       };
 
-      axios.post("http://192.168.1.8:3000/feed", data).then((res) => {
+      axios.get("http://localhost:3000/feeds").then((res) => {
         console.log(res);
       });
     },

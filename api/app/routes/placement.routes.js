@@ -1,6 +1,6 @@
 module.exports = app => {
   const student = require("../controllers/student.controller.js");
-  const company = require("../controllers/company.controller.js");
+  const feed = require("../controllers/feeds.controller.js");
 
   // Create a new Student
   app.post("/student", student.create);
@@ -17,18 +17,9 @@ module.exports = app => {
   // Delete a Student with studentId
   app.delete("/student/:studentId", student.delete);
 
-  // Create a new Company
-  app.post("/company", company.create);
+    // Create a new Feed
+    app.post("/feed", feed.create);
 
-  // Retrieve all Companies
-  app.get("/companies", company.findAll);
-
-  // Retrieve a single Company with companyId
-  app.get("/company/:companyId", company.findOne);
-
-  // Update a Company with companyId
-  app.put("/company/:companyId", company.update);
-
-  // Delete a Company with companyId
-  app.delete("/company/:companyId", company.delete);
+    // Retrieve all Feeds
+    app.get("/feeds", feed.findAll);
 };
