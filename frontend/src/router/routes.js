@@ -7,6 +7,7 @@ import Dashboard from "@/pages/Dashboard.vue";
 import UserProfile from "@/pages/UserProfile.vue";
 import PostUpdates from "@/pages/PostUpdates.vue";
 import Notifications from "@/pages/Notifications.vue";
+import StuNotifications from "@/pages/StuNotifications.vue";
 import TableList from "@/pages/TableList.vue";
 // Login
 import Login from "../components/LoginPage.vue"
@@ -43,6 +44,11 @@ const routes = [
         path: "notifications",
         name: "notifications",
         component: Notifications
+      },
+      {
+        path: "stunotifications",
+        name: "stunotifications",
+        component: StuNotifications
       },
       
       {

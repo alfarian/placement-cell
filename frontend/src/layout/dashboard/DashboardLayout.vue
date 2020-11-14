@@ -11,7 +11,7 @@
        <template slot="links" v-if="this.$store.state.storeUsers.personaType=='student'">
         <sidebar-link to="/stats" name="Fill Form" icon="ti-notepad"/>
         <sidebar-link to="/table-list" name="Question Bank" icon="ti-view-list-alt"/>
-        <sidebar-link to="/notifications" name="Another tab" icon="ti-bell"/>
+        <sidebar-link to="/stunotifications" name=" Notifications" icon="ti-bell"/>
       </template>
       <template slot="links" v-if="this.$store.state.storeUsers.personaType=='comp'">
         <sidebar-link to="/dashboard" name="Overview" icon="ti-panel"/>
