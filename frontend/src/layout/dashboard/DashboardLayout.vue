@@ -2,8 +2,9 @@
   <div class="wrapper">
     <side-bar>
       <template slot="links" v-if="this.$store.state.storeUsers.personaType=='admin'">
-        <sidebar-link to="/dashboard" name="Dashboard" icon="ti-panel"/>
+        <sidebar-link to="/dashboard" name="Daoard" icon="ti-panel"/>
         <sidebar-link to="/stats" name="Register User" icon="ti-user"/>
+        <sidebar-link to="/postupdates" name="Post Updates" icon="ti-comments"/>
         <sidebar-link to="/table-list" name="Table View" icon="ti-view-list-alt"/>
         <sidebar-link to="/notifications" name="Notifications" icon="ti-bell"/>
       </template>
