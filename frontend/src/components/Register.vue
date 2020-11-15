@@ -54,7 +54,7 @@
             <b-tabs content-class="mt-3" justified>
               <b-tab title="Student" active>
                 <div class="container">
-                  <h3>Sign In</h3>
+                  <h3>Register User</h3>
                   <div class="form-group">
                     <label>Email address</label>
                     <input
@@ -72,36 +72,43 @@
                       class="form-control form-control-lg"
                     />
                   </div>
+                  <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input
+                      type="password"
+                      v-model="confirmpassword"
+                      class="form-control form-control-lg"
+                    />
+                  </div>
 
                   <b-button
+                    :disabled="flagdisable"
                     variant="info"
                     type="submit"
-                    @click="validateUserStudent"
+                    @click="registerUserStudent"
                     class="btn btn-dark btn-lg btn-block"
                   >
-                    Sign In
+                    Create Account
                   </b-button>
                   <div class="row">
                     <div class="col-6">
                       <p class="forgot-password text-left mt-2 mb-4">
-                        <router-link to="/register-user"
-                          >Register New User</router-link
-                        >
+                        <router-link to="/login">Sign in instead</router-link>
                       </p>
                     </div>
                     <div class="col-6">
-                      <p class="forgot-password text-right mt-2 mb-4">
+                      <!-- <p class="forgot-password text-right mt-2 mb-4">
                         <router-link to="/forgot-password"
                           >Forgot password ?</router-link
                         >
-                      </p>
+                      </p> -->
                     </div>
                   </div>
                 </div>
               </b-tab>
               <b-tab title="Admin">
                 <div class="container">
-                  <h3>Sign In</h3>
+                  <h3>Register User</h3>
                   <div class="form-group">
                     <label>Email address</label>
                     <input
@@ -119,29 +126,36 @@
                       class="form-control form-control-lg"
                     />
                   </div>
+                  <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input
+                      type="password"
+                      v-model="confirmpassword"
+                      class="form-control form-control-lg"
+                    />
+                  </div>
 
                   <b-button
+                    :disabled="flagdisable"
                     variant="info"
                     type="submit"
-                    @click="validateUserAdmin"
+                    @click="registerUserAdmin"
                     class="btn btn-warning btn-lg btn-block"
                   >
-                    Sign In
+                    Create Account
                   </b-button>
                   <div class="row">
                     <div class="col-6">
                       <p class="forgot-password text-left mt-2 mb-4">
-                        <router-link to="/register-user"
-                          >Register New User</router-link
-                        >
+                        <router-link to="/login">Sign in instead</router-link>
                       </p>
                     </div>
                     <div class="col-6">
-                      <p class="forgot-password text-right mt-2 mb-4">
+                      <!-- <p class="forgot-password text-right mt-2 mb-4">
                         <router-link to="/forgot-password"
                           >Forgot password ?</router-link
                         >
-                      </p>
+                      </p> -->
                     </div>
                   </div>
                 </div>
@@ -156,31 +170,51 @@
 </template>
 
 <script>
-import axios from "axios"
+import axios from "axios";
 export default {
   data() {
     return {
       email: "",
       password: "",
+      confirmpassword: "",
+      flagdisable: true,
     };
   },
   methods: {
-    validateUserAdmin() {
+    pwdValidation() {
+      if (
+        this.confirmpassword != "" &&
+        this.password != "" &&
+        this.confirmpassword == this.password
+      ) {
+        this.flagdisable = false;
+      } else {
+        this.flagdisable = true;
+      }
+    },
+    registerUserAdmin() {
       if (this.email == "admin" && this.password == "admin") {
         this.$store.state.storeUsers.personaType = "admin";
+        alert("Admin User Added Successfuly");
+
         this.$router.push("dashboard");
       } else {
         alert("Invalid Admin User !!");
       }
     },
-    validateUserStudent() {
+    registerUserStudent() {
       if (this.email == "student" && this.password == "student") {
         this.$store.state.storeUsers.personaType = "student";
+        alert("Student User Added Successfuly");
+
         this.$router.push("stats");
       } else {
         alert("Invalid Student User !!");
       }
     },
+  },
+  watch: {
+    confirmpassword: "pwdValidation",
   },
 };
 </script>
