@@ -69,6 +69,7 @@
                     <input
                       type="password"
                       v-model="password"
+                      @keyup.enter="validateUserStudent"
                       class="form-control form-control-lg"
                     />
                   </div>
@@ -116,6 +117,7 @@
                     <input
                       type="password"
                       v-model="password"
+                      @keyup.enter="validateUserAdmin"
                       class="form-control form-control-lg"
                     />
                   </div>
