@@ -1,6 +1,7 @@
 module.exports = app => {
   const student = require("../controllers/student.controller.js");
   const feed = require("../controllers/feeds.controller.js");
+  const user = require("../controllers/user.controller.js");
 
   // Create a new Student
   app.post("/student", student.create);
@@ -17,9 +18,15 @@ module.exports = app => {
   // Delete a Student with studentId
   app.delete("/student/:studentId", student.delete);
 
-    // Create a new Feed
-    app.post("/feed", feed.create);
+  // Create a new Feed
+  app.post("/feed", feed.create);
 
-    // Retrieve all Feeds
-    app.get("/feeds", feed.findAll);
+  // Retrieve all Feeds
+  app.get("/feeds", feed.findAll);
+
+  // Sign up
+  app.post("/user/register", user.create);
+
+  // Login
+  app.post("/user/login", user.login);
 };
