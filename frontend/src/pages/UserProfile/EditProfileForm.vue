@@ -127,8 +127,8 @@ export default {
   data() {
     return {
       user: {
-        company: "Placement Cell",
-        username: "michael23",
+        company: "My Company",
+        username: "michael123",
         email: "",
 
         firstName: "Steve",

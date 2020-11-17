@@ -8,11 +8,11 @@
           </li>
         </ul>
       </nav>
-      <div class="copyright d-flex flex-wrap">
+      <!-- <div class="copyright d-flex flex-wrap">
         &copy; Coded with
         <i class="fa fa-heart heart"></i> by
         <a href="https://github.com/alfarian" target="_blank"> &nbsp; Alfarian</a>&nbsp;
-      </div>
+      </div> -->
     </div>
   </footer>
 </template>
