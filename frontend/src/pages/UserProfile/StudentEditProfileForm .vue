@@ -3,17 +3,17 @@
     <div>
       <form @submit.prevent>
         <div class="row">
-          <!-- <div class="col-md-5">
+          <div class="col-md-5">
             <fg-input
               type="text"
-              label="Company"
+              label="Department"
               :disabled="false"
-              title="Name of Company"
-              placeholder="Placement Cell"
+              title="Name of Department"
+              placeholder="My Department"
               v-model="user.company"
             >
             </fg-input>
-          </div> -->
+          </div>
           <div class="col-md-3">
             <fg-input
               type="text"
@@ -127,7 +127,7 @@ export default {
   data() {
     return {
       user: {
-        company: "Placement Cell",
+        company: "My Department",
         username: "michael23",
         email: "",
 

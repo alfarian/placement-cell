@@ -11,7 +11,7 @@
       </div>
 
       <div class="col-12">
-        <card class="card-plain">
+        <card class="card-plain" title="List of Students">
           <div class="table-full-width table-responsive">
             <paper-table type="hover" :title="table2.title" :sub-title="table2.subTitle" :data="table2.data"
                          :columns="table2.columns">
@@ -71,8 +71,8 @@ export default {
   data() {
     return {
       table1: {
-        title: "Stripped Table",
-        subTitle: "Here is a subtitle for this table",
+        title: "Table to view",
+        subTitle: "Shortlisted students",
         columns: [...tableColumns],
         data: [...tableData]
       },
