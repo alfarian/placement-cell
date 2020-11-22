@@ -2,7 +2,7 @@
   <div class="wrapper">
     <side-bar>
       <template slot="links" v-if="this.$store.state.storeUsers.personaType=='admin'">
-        <sidebar-link to="/dashboard" name="Dashboard" icon="ti-panel"/>
+        <sidebar-link to="/admin-home" name="Home" icon="ti-panel"/>
         <sidebar-link to="/admin-profile" name="My Profile" icon="ti-user"/>
         <sidebar-link to="/admin-drive" name="Upload Drives" icon="ti-upload"/>
         <sidebar-link to="/admin-tandw" name="Training&Workshop" icon="ti-direction-alt"/>

@@ -14,6 +14,7 @@ import AdProfile from "@/pages/Users/AdminPages/AdProfile.vue"
 import AdTraining from "@/pages/Users/AdminPages/Training.vue"
 import AdDrive from "@/pages/Users/AdminPages/UploadDrives.vue"
 import AdViewStu from "@/pages/Users/AdminPages/ViewStudent.vue"
+import AdHome from "@/pages/Users/AdminPages/AdHome.vue"
 
 // Student Pages
 import StMyProfile from "@/pages/Users/StudentPages/MyProfile.vue"
@@ -53,6 +54,11 @@ const routes = [
         component: Dashboard
       },
       // admin start
+      {
+        path: "/admin-home",
+        name: "Home",
+        component: AdHome
+      },
       {
         path: "/admin-drive",
         name: "Drive",

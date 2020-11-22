@@ -170,7 +170,7 @@ export default {
     validateUserAdmin() {
       if (this.email == "admin" && this.password == "admin") {
         this.$store.state.storeUsers.personaType = "admin";
-        this.$router.push("dashboard");
+        this.$router.push("admin-home");
       } else {
         alert("Invalid Admin User !!");
       }

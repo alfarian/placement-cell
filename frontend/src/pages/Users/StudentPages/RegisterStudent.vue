@@ -10,7 +10,7 @@
               :disabled="false"
               title="Full Name"
               placeholder="Name"
-              v-model="user.fullname"
+              v-model="user.name"
             >
             </fg-input>
           </div>
@@ -19,7 +19,7 @@
               type="number"
               label="Register Number"
               placeholder="Register No."
-              v-model="user.regnum"
+              v-model="user.register_no"
             >
             </fg-input>
           </div>
@@ -41,7 +41,7 @@
             <b-form-group style="margin-top: 5px">
               <b-form-radio-group
                 id="radio-group-1"
-                v-model="user.genderSelected"
+                v-model="user.gender"
                 :options="optionsGender"
                 name="radio-options"
               ></b-form-radio-group>
@@ -63,7 +63,7 @@
 
             <b-form-group>
               <b-form-select
-                v-model="user.selectedDepartment"
+                v-model="user.department_id"
                 :options="optionsDepartment"
               ></b-form-select>
             </b-form-group>
@@ -72,7 +72,7 @@
             <label for="example-input">Year</label>
             <b-input-group class="mb-6">
               <b-form-select
-                v-model="user.selectedYear"
+                v-model="user.sem_year"
                 :options="optionsYear"
               ></b-form-select>
             </b-input-group>
@@ -106,7 +106,7 @@
               type="number"
               label="Postal Code"
               placeholder="PIN"
-              v-model="user.postalCode"
+              v-model="user.pincode"
             >
             </fg-input>
           </div>
@@ -115,8 +115,8 @@
 
             <b-form-file
               accept=".jpg, .png"
-              v-model="user.photo"
-              :state="Boolean(user.photo)"
+              v-model="photo"
+              :state="Boolean(photo)"
               placeholder="Choose a file or drop it here..."
               drop-placeholder="Drop file here..."
             ></b-form-file>
@@ -134,7 +134,7 @@
                   :disabled="false"
                   title="Full Name"
                   placeholder="eg: 0.75 for 75%"
-                  v-model="user.tenper"
+                  v-model="user.mark10"
                 >
                 </fg-input>
               </div>
@@ -143,7 +143,7 @@
                   type="number"
                   label="12th %"
                   placeholder="eg: 0.75 for 75%"
-                  v-model="user.twelveper"
+                  v-model="user.mark12"
                 >
                 </fg-input>
               </div>
@@ -156,17 +156,6 @@
                 >
                 </fg-input>
               </div>
-            </div>
-
-            <div class="form-group">
-              <label>Add Description</label>
-              <textarea
-                rows="5"
-                class="form-control border-input"
-                placeholder="Here can be your description"
-                v-model="user.aboutMe"
-              >
-              </textarea>
             </div>
           </div>
         </div>
@@ -181,47 +170,88 @@
   </card>
 </template>
 <script>
+import axios from "axios";
+import NotificationTemplate from "@/pages/Notifications/NotificationTemplate.vue";
+
 export default {
   data() {
     return {
       optionsYear: [
-        { text: "2020", value: "2020" },
-        { text: "2019", value: "2019" },
-        { text: "2018", value: "2018" },
+        { text: "2020", value: 1 },
+        { text: "2019", value: 1 },
+        { text: "2018", value: 1 },
       ],
       optionsDepartment: [
-        { text: "D1", value: "d1" },
-        { text: "D2", value: "d2" },
-        { text: "D3", value: "d3" },
+        { text: "D1", value: 1 },
+        { text: "D2", value: 1 },
+        { text: "D3", value: 1 },
       ],
       optionsGender: [
-        { text: "Male", value: "M" },
-        { text: "Female", value: "F" },
-        { text: "Others", value: "O" },
+        { text: "Male", value: 1 },
+        { text: "Female", value: 0 },
       ],
+      photo: null,
       user: {
-        fullname: "",
-        regnum: "",
-        email: "",
-        selectedDepartment: "d3",
-        selectedYear: "2020",
-        genderSelected: "F",
-        dob: "",
-        address: "",
-        mobile: "",
-        city: "",
-        photo: null,
-        tenper: null,
-        twelveper: null,
-        postalCode: null,
-        cgpa: null,
-        aboutMe: `We must accept finite disappointment, but hold on to infinite hope.`,
+        name: "test",
+        register_no: "14004016",
+        email: "test@test.com",
+        department_id: 1,
+        sem_year: 1,
+        gender: 1,
+        dob: "1997-02-10",
+        address: "hahaha",
+        mobile: 566666,
+        mark10: 66,
+        mark12: 55,
+        pincode: 111,
+        cgpa: 7,
+      },
+      type: ["", "info", "success", "warning", "danger"],
+      notifications: {
+        topCenter: false,
       },
     };
   },
   methods: {
+    notifyVue(verticalAlign, horizontalAlign) {
+      // const color = Math.floor(Math.random() * 4 + 1);
+      const color = 2;
+
+      this.$notify({
+        component: NotificationTemplate,
+        icon: "ti-gift",
+        horizontalAlign: horizontalAlign,
+        verticalAlign: verticalAlign,
+        type: this.type[color],
+      });
+    },
     updateProfile() {
-      alert("Your data: " + JSON.stringify(this.user));
+      //       {
+      //     "name":"adarsh",
+      //     "register_no":14004016,
+      //     "gender": 1,
+      //     "dob": "1997-02-10",
+      //     "department_id": 1,
+      //     "sem_year": 1,
+      //     "mobile": 8113017506,
+      //     "email":"adarsh97vtk@gmail.com",
+      //     "address": "kanavu, nadakkuthazha, vadakara",
+      //     "pincode": 673014,
+      //     "mark10":97.5,
+      //     "mark12": 93.5,
+      //     "cgpa": 7.55
+      // }
+      // placement-cell-alfa.herokuapp.com
+      var data = this.user;
+
+      axios
+        .post("https://placement-cell-alfa.herokuapp.com/student", data)
+        .then((res) => {
+          if (res.data.result == "Success") {
+            this.notifyVue("top", "center");
+          }
+          console.log(res);
+        });
     },
   },
 };
