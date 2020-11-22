@@ -207,7 +207,7 @@ export default {
         this.$store.state.storeUsers.personaType = "student";
         alert("Student User Added Successfuly");
 
-        this.$router.push("stats");
+        this.$router.push("dashboard");
       } else {
         alert("Invalid Student User !!");
       }

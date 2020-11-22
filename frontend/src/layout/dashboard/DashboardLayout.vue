@@ -3,15 +3,22 @@
     <side-bar>
       <template slot="links" v-if="this.$store.state.storeUsers.personaType=='admin'">
         <sidebar-link to="/dashboard" name="Dashboard" icon="ti-panel"/>
-        <sidebar-link to="/stats" name="Register User" icon="ti-user"/>
+        <sidebar-link to="/admin-profile" name="My Profile" icon="ti-user"/>
+        <sidebar-link to="/admin-drive" name="Upload Drives" icon="ti-upload"/>
+        <sidebar-link to="/admin-tandw" name="Training&Workshop" icon="ti-direction-alt"/>
         <sidebar-link to="/postupdates" name="Post Updates" icon="ti-comments"/>
-        <sidebar-link to="/table-list" name="Table View" icon="ti-view-list-alt"/>
-        <sidebar-link to="/notifications" name="Notifications" icon="ti-bell"/>
+        <sidebar-link to="/admin-list" name="View Student Details" icon="ti-view-list-alt"/>
       </template>
        <template slot="links" v-if="this.$store.state.storeUsers.personaType=='student'">
-        <sidebar-link to="/stats" name="Fill Form" icon="ti-notepad"/>
-        <sidebar-link to="/table-list" name="Question Bank" icon="ti-view-list-alt"/>
+        <sidebar-link to="/dashboard" name="Home" icon="ti-panel"/>
+        <sidebar-link to="/student-register" name="Register" icon="ti-notepad"/>
+        <sidebar-link to="/student-profile" name="My Profile" icon="ti-user"/>
+        <sidebar-link to="/student-drives" name="View Placement Drives" icon="ti-view-list-alt"/>
+        <sidebar-link to="/student-work" name="Training&Workshops" icon="ti-announcement"/>
+        <sidebar-link to="/student-qb" name="Question Bank" icon="ti-server"/>
         <sidebar-link to="/stunotifications" name=" Notifications" icon="ti-bell"/>
+        <sidebar-link to="/student-feedback" name=" Feedback" icon="ti-pencil"/>
+        <sidebar-link to="/student-po" name="Placement Officer" icon="ti-info"/>
       </template>
       <template slot="links" v-if="this.$store.state.storeUsers.personaType=='comp'">
         <sidebar-link to="/dashboard" name="Overview" icon="ti-panel"/>
