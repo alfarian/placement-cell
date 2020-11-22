@@ -6,10 +6,10 @@
     <div>
       <div class="author">
         <img class="avatar border-white" src="@/assets/img/faces/face-2.jpg" alt="...">
-        <h4 class="title">Chet Faker
+        <h4 class="title">User
           <br>
           <a href="#">
-            <small>@chetfaker</small>
+            <small>@User</small>
           </a>
         </h4>
       </div>
@@ -39,15 +39,15 @@ export default {
       details: [
         {
           title: "12",
-          subTitle: "Files"
+          subTitle: "Pending"
         },
         {
-          title: "2GB",
-          subTitle: "Used"
+          title: "2",
+          subTitle: "Submitted"
         },
         {
-          title: "24,6$",
-          subTitle: "Spent"
+          title: "24",
+          subTitle: "Left"
         }
       ]
     };

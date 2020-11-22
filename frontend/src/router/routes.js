@@ -9,11 +9,26 @@ import PostUpdates from "@/pages/PostUpdates.vue";
 import Notifications from "@/pages/Notifications.vue";
 import StuNotifications from "@/pages/StuNotifications.vue";
 import TableList from "@/pages/TableList.vue";
+// admin Pages
+import AdProfile from "@/pages/Users/AdminPages/AdProfile.vue"
+import AdTraining from "@/pages/Users/AdminPages/Training.vue"
+import AdDrive from "@/pages/Users/AdminPages/UploadDrives.vue"
+import AdViewStu from "@/pages/Users/AdminPages/ViewStudent.vue"
+
+// Student Pages
+import StMyProfile from "@/pages/Users/StudentPages/MyProfile.vue"
+import StFeedback from "@/pages/Users/StudentPages/Feedback.vue"
+import StPlacementOfficer from "@/pages/Users/StudentPages/PlacementOfficer.vue"
+import StQuestionBank from "@/pages/Users/StudentPages/QuestionBank.vue"
+import StViewDrives from "@/pages/Users/StudentPages/ViewDrives.vue"
+import StViewWorkshop from "@/pages/Users/StudentPages/ViewWorkshop.vue"
+import StRegister from "@/pages/Users/StudentPages/RegisterStudent.vue"
 // Login
 import Login from "../components/LoginPage.vue"
 import Register from "../components/Register.vue"
 
 const routes = [
+
   {
     path: "/register-user",
     name: "register",
@@ -37,6 +52,65 @@ const routes = [
         name: "dashboard",
         component: Dashboard
       },
+      // admin start
+      {
+        path: "/admin-drive",
+        name: "Drive",
+        component: AdDrive
+      }, {
+        path: "/admin-tandw",
+        name: "Profile",
+        component: AdTraining
+      }, {
+        path: "/admin-list",
+        name: "List",
+        component: AdViewStu
+      },
+      {
+        path: "/admin-profile",
+        name: "Profile",
+        component: AdProfile
+      },
+      // admin end
+      // student start
+      {
+        path: "/student-register",
+        name: "Register",
+        component: StRegister
+      },
+      {
+        path: "/student-work",
+        name: "Workshops",
+        component: StViewWorkshop
+      }, {
+        path: "/student-drives",
+        name: "Drive",
+        component: StViewDrives
+      }, {
+        path: "/student-qb",
+        name: "Question Bank",
+        component: StQuestionBank
+      }, {
+        path: "/student-po",
+        name: "Placement Officer",
+        component: StPlacementOfficer
+      },
+      {
+        path: "/student-feedback",
+        name: "My Feedback",
+        component: StFeedback
+      },
+      {
+        path: "stunotifications",
+        name: "stunotifications",
+        component: StuNotifications
+      },
+      {
+        path: "/student-profile",
+        name: "My Profile",
+        component: StMyProfile
+      },
+      // stu-end
       {
         path: "stats",
         name: "Register User",
@@ -52,12 +126,8 @@ const routes = [
         name: "notifications",
         component: Notifications
       },
-      {
-        path: "stunotifications",
-        name: "stunotifications",
-        component: StuNotifications
-      },
-      
+     
+
       {
         path: "table-list",
         name: "table-list",

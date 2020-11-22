@@ -178,7 +178,7 @@ export default {
     validateUserStudent() {
       if (this.email == "student" && this.password == "student") {
         this.$store.state.storeUsers.personaType = "student";
-        this.$router.push("stats");
+        this.$router.push("dashboard");
       } else {
         alert("Invalid Student User !!");
       }
