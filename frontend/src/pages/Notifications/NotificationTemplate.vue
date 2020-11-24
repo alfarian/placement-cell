@@ -1,5 +1,5 @@
 <template>
-  <span>Welcome to <b>Placement Cell</b> - a beautiful freebie for every web developer.</span>
+  <span> Registered Student <b>Successfully !</b> -</span>
 </template>
 
 <script>
