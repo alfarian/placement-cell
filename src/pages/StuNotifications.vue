@@ -5,9 +5,10 @@
         <b-card
           v-for="(i, index) in result"
           v-bind:key="index"
+          :title="i.name"
         >
           <br />
-          {{ i.content }}
+          {{ i.details }}
         </b-card>
       </div>
       <!-- <paper-table :data="table1.data" :columns="table1.columns"> </paper-table> -->
@@ -59,7 +60,7 @@ const tableData = [
 ];
 export default {
   mounted() {
-    axios.get("https://placement-cell-alfa.herokuapp.com/feeds").then((res) => {
+    axios.get("https://placement-cell-alfa.herokuapp.com/notifications").then((res) => {
       console.log(res.data);
       this.result = res.data;
     });

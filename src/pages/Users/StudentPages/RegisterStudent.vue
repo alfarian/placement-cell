@@ -24,13 +24,20 @@
             </fg-input>
           </div>
           <div class="col-md-4">
-            <fg-input
-              type="email"
-              label="Email"
-              placeholder="Email"
-              v-model="user.email"
-            >
-            </fg-input>
+            <label for="radio-group-1">Email</label>
+
+            <div class="form-group">
+            
+              <input
+                v-model="user.email"
+                v-bind:class="{
+                  'form-control': true,
+                  'is-invalid': !validEmail(email) && emailBlured,
+                }"
+                v-on:blur="emailBlured = true"
+              />
+              <div class="invalid-feedback">A valid email is required</div>
+            </div>
           </div>
         </div>
 
@@ -93,13 +100,15 @@
 
         <div class="row">
           <div class="col-md-4">
-            <fg-input
+            <label>Mobile Number</label>
+            <b-form-input
               type="number"
+              :state="nameState"
               label="Mobile"
               placeholder="Mobile No."
               v-model="user.mobile"
             >
-            </fg-input>
+            </b-form-input>
           </div>
           <div class="col-md-4">
             <fg-input
@@ -176,35 +185,44 @@ import NotificationTemplate from "@/pages/Notifications/NotificationTemplate.vue
 export default {
   data() {
     return {
+     
+      emailBlured: false,
+      valid: false,
+      submitted: false,
       optionsYear: [
         { text: "2020", value: 1 },
         { text: "2019", value: 1 },
         { text: "2018", value: 1 },
       ],
       optionsDepartment: [
-        { text: "D1", value: 1 },
-        { text: "D2", value: 1 },
-        { text: "D3", value: 1 },
+        { text: "ECE", value: 1 },
+        { text: "CSE", value: 3 },
+        { text: "EEE", value: 2 },
+        { text: "IT", value: 4 },
+        { text: "EIE", value: 5 },
+        { text: "CE", value: 6 },
+        { text: "MCA", value: 7 },
       ],
       optionsGender: [
         { text: "Male", value: 1 },
         { text: "Female", value: 0 },
       ],
+
       photo: null,
       user: {
-        name: "test",
-        register_no: "14004016",
-        email: "test@test.com",
-        department_id: 1,
-        sem_year: 1,
-        gender: 1,
-        dob: "1997-02-10",
-        address: "hahaha",
-        mobile: 566666,
-        mark10: 66,
-        mark12: 55,
-        pincode: 111,
-        cgpa: 7,
+        name: "",
+        register_no: "",
+        email: "",
+        department_id: null,
+        sem_year: null,
+        gender: null,
+        dob: "",
+        address: "",
+        mobile: "",
+        mark10: null,
+        mark12: null,
+        pincode: null,
+        cgpa: null,
       },
       type: ["", "info", "success", "warning", "danger"],
       notifications: {
@@ -212,7 +230,22 @@ export default {
       },
     };
   },
+  computed: {
+    nameState() {
+      return this.user.mobile.length == 10 ? true : false;
+    },
+  },
   methods: {
+    validate: function () {
+      this.emailBlured = true;
+      if (this.validEmail(this.email)) {
+        this.valid = true;
+      }
+    },
+    validEmail: function (email) {
+      var re = /(.+)@(.+){2,}\.(.+){2,}/;
+      return re.test(email.toLowerCase());
+    },
     notifyVue(verticalAlign, horizontalAlign) {
       // const color = Math.floor(Math.random() * 4 + 1);
       const color = 2;

@@ -6,9 +6,9 @@
           <div class="col-md-5">
             <fg-input
               type="text"
-              label="Department"
+              label="Subject"
               :disabled="false"
-              title="Name of Department"
+              title="Name of Subject"
               placeholder="Placement Cell"
               v-model="user.company"
             >
@@ -49,7 +49,7 @@ export default {
   data() {
     return {
       user: {
-        company: "Department",
+        company: "",
         username: "User",
         email: "",
 
@@ -66,10 +66,11 @@ export default {
   methods: {
     updateProfile() {
       let data = {
-        content: this.user.content,
+        name: this.user.company,
+        details: this.user.content,
       };
 
-      axios.post("https://placement-cell-alfa.herokuapp.com/feed", data).then((res) => {
+      axios.post("https://placement-cell-alfa.herokuapp.com/notification", data).then((res) => {
         console.log(res);
       });
     },

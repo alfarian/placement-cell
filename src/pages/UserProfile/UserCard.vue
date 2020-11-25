@@ -31,25 +31,7 @@
       <div class="author"></div>
     </div>
     <hr />
-    <div class="text-center">
-      <div class="row">
-        <b-card title="Placement Details">
-          <div class="row" style="width:700px">
-        <div
-          v-for="(info, index) in details"
-          :key="index"
-          :class="getClasses(index)"
-        >
-          <h5>
-            {{ info.title }}
-            <br />
-            <small>{{ info.subTitle }}</small>
-          </h5>
-        </div>
-        </div>
-      </b-card>
-      </div>
-    </div>
+   
   </card>
 </template>
 <script>

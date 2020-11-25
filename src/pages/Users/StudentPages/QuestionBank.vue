@@ -3,7 +3,7 @@
     <div class="col-12">
       <card :title="table1.title" :subTitle="table1.subTitle">
         <div slot="raw-content" class="table-responsive">
-          <br/>
+          <br />
           <dx-data-grid
             class="data_grid"
             id="grid-container"
@@ -18,8 +18,7 @@
               :apply-filter="currentFilter"
             />
             <dx-header-filter :visible="showHeaderFilter" />
-           
-           
+
             <dx-column v-for="i in columns" :data-field="i" :key="i" />
 
             <!-- <dx-scrolling column-rendering-mode="virtual"/> -->
@@ -93,29 +92,28 @@ export default {
   },
   data() {
     return {
-      selectedRowKeys:[],
+      selectedRowKeys: [],
       showFilterRow: true,
       showHeaderFilter: true,
-      currentFilter:'',
+      currentFilter: "",
       columns: [
-        "ID",
-        
-        "Department_name",
-        "Year",
-        "Semester",
-        "Question_Type",
-        "Link"
-        
+        "question_id",
+
+        "department",
+        "year",
+        "semester",
+        "type",
+        "link",
       ],
       dataSource: [
         {
-          "ID": null,
-          "Department_name": "",
-          "Year": "",
-          "Semester": "",
-          "Question_Type": "",
-                  "Link":""
-
+          department: "CSE",
+          link:
+            "http://www.governmentadda.com/wp-content/uploads/2017/11/average-questions-governmentadda.com_.pdf",
+          question_id: 1,
+          semester: "s3",
+          type: "maths average",
+          year: 2020,
         },
       ],
       tableFormData: [],
@@ -135,8 +133,13 @@ export default {
     };
   },
   mounted() {
-    
-       
+    axios
+      .get("https://placement-cell-alfa.herokuapp.com/questions")
+      .then((res) => {
+        console.log(res.data);
+        this.result = res.data;
+        this.dataSource= res.data
+      });
   },
 };
 </script>
