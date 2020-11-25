@@ -32,7 +32,7 @@
                 v-model="user.email"
                 v-bind:class="{
                   'form-control': true,
-                  'is-invalid': !validEmail(email) && emailBlured,
+                  'is-invalid': !validEmail(user.email) && emailBlured,
                 }"
                 v-on:blur="emailBlured = true"
               />
@@ -185,7 +185,7 @@ import NotificationTemplate from "@/pages/Notifications/NotificationTemplate.vue
 export default {
   data() {
     return {
-     
+      email: "",
       emailBlured: false,
       valid: false,
       submitted: false,
@@ -238,7 +238,7 @@ export default {
   methods: {
     validate: function () {
       this.emailBlured = true;
-      if (this.validEmail(this.email)) {
+      if (this.validEmail(this.user.email)) {
         this.valid = true;
       }
     },

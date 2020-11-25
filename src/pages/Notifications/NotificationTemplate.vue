@@ -1,5 +1,5 @@
 <template>
-  <span> Registered Student <b>Successfully !</b> -</span>
+  <span> Submitted <b>Successfully !</b> -</span>
 </template>
 
 <script>
